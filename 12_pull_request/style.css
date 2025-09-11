@@ -1,0 +1,45 @@
+html {
+  background-color: black;
+}
+
+header {
+  height: 3rem;
+}
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+
+  background-color: rgb(45, 0, 30);
+  border: 5px deeppink dashed;
+  margin: 30px 100px;
+  padding: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  max-width: 90%;
+  margin: 15px;
+  border: 1px solid black;
+}
+
+img:hover {
+  border: 1px solid white;
+}
+
+a,
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+a:active {
+  color: cadetblue;
+}

@@ -1,0 +1,95 @@
+@use "./scss/mixins";
+@use "./scss/variables" as var;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800; 
+}
+
+html {
+  background-color: var.$body-background-blue;
+}
+
+header { 
+  height: 6rem;
+}
+
+body { 
+  font-family: Helvetica, sans-serif;
+}
+
+main {
+  margin: auto;  
+}
+
+section { 
+  @include mixins.flex(row, center, center);
+  gap: 30px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.title {
+  height: 5rem; 
+  color: var.$pending-blue;
+}
+
+.card { 
+  width: 300px;
+  height: 500px;
+  padding: 25px;
+
+  background-color: var.$card-background-white;
+  box-shadow: 0px 2px 2px 2px var.$shadow;
+  
+  border-radius: 20px;
+ 
+  @include mixins.flex(column, flex-start, flex-start);
+  gap: 10px;
+}
+
+.card-item {
+  font-size: 0.8rem;
+  width: 100%;
+
+  padding: 7px 10px;
+  border-radius: 40px;
+  @include mixins.flex(row, center, center);
+  gap: 10px;
+
+  img {
+    padding: 4px;
+    width: 30px;
+    border-radius: 25px;
+    background-color: var.$card-background-white;
+  }
+
+  div {
+    flex-grow: 1;
+
+    p {
+      color: var.$text-grey;
+      font-size: 0.65rem;
+      font-weight: 600; 
+    }
+  }
+}
+
+.red {
+  @include mixins.card-colorise(var.$overdue-red, var.$overdue-background-red); 
+}
+
+.blue {
+  @include mixins.card-colorise(var.$pending-blue, var.$pending-background-blue); 
+}
+
+.green {
+  @include mixins.card-colorise(var.$completed-green, var.$completed-background-green); 
+}

@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+}
+
+html {
+  background-color: #d8eef5;
+}
+
+header {
+  height: 6rem;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+main {
+  margin: auto;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.title {
+  height: 5rem;
+  color: #2a5c81;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  padding: 25px;
+  background-color: #feffff;
+  box-shadow: 0px 2px 2px 2px lightblue;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-item {
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.card-item img {
+  padding: 4px;
+  width: 30px;
+  border-radius: 25px;
+  background-color: #feffff;
+}
+.card-item div {
+  flex-grow: 1;
+}
+.card-item div p {
+  color: #555555;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.red {
+  color: #993535;
+}
+.red .card-item {
+  background-color: #fbdede;
+}
+
+.blue {
+  color: #2a5c81;
+}
+.blue .card-item {
+  background-color: #c6dde5;
+}
+
+.green {
+  color: #2d6b2d;
+}
+.green .card-item {
+  background-color: #c9e1cb;
+}
+
+/*# sourceMappingURL=style.css.map */

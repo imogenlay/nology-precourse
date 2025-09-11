@@ -1,23 +1,21 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
+@use "./scss/variables" as var;
+@use "./scss/global";
+@use "./scss/mixins";
+ 
 html {
-  background-color: #02080b;
+  background-color: var.$background-black;
 }
 
 body {
   font-family: "Consolas";
   color: white;
-  background-color: #181a1b;
+  background-color: var.$background-dark;
+
   padding: 0 60px;
   margin: 0 20%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  height: 100vh; 
+  
+  @include mixins.flex(column, flex-start, flex-start);
   gap: 20px;
 }
 
@@ -25,9 +23,9 @@ header {
   padding-top: 40px;
 }
 
-main {
+main { 
   border: 1px white dashed;
-  flex-grow: 1;
+  flex-grow: 1; 
 }
 
 ol {
@@ -52,10 +50,5 @@ a:active {
   height: 100px;
   background-color: yellow;
   color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flex();
 }
-
-/*# sourceMappingURL=style.css.map */
