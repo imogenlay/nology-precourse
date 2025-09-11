@@ -1,0 +1,31 @@
+main {
+  max-width: 800px;
+}
+
+h1 {
+  color: blue;
+  font-size: 2rem;
+}
+
+article {
+  border: black 1px solid;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+article li {
+  list-style-type: none;
+}
+
+article p {
+  text-decoration: underline;
+  color: red;
+}
+
+article ~ p {
+  color: brown;
+}
+
+article + p {
+  color: coral;
+  font-weight: bold;
+}

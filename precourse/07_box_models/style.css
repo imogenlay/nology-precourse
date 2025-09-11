@@ -1,0 +1,20 @@
+main {
+  max-width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.outside {
+  border: 2px orange solid;
+  background-color: lightgreen;
+  padding: 40px 0px;
+}
+
+.inside {
+  border: 2px orange solid;
+  background-color: deeppink;
+  padding: 40px;
+}
+
+.inside p {
+  padding-left: 40px;
+}

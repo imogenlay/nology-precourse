@@ -1,0 +1,43 @@
+main {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  display: flex;
+}
+
+.flex-container {
+  width: 900px;
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between; /* Main difference between wrap challenge 1 and 2 */
+  border: 1px black solid;
+}
+
+.card {
+  background-color: greenyellow;
+  width: 33.333%;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+#blue {
+  background-color: lightskyblue;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#pink {
+  background-color: deeppink;
+}
+
+.button-container {
+  margin: auto;
+  padding-top: 20px;
+  justify-content: center;
+}

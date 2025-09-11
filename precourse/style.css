@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: #02080b;
+}
+
+body {
+  color: white;
+  padding: 20px 60px 200px 60px;
+  margin: 0px 20%;
+  font-family: "Consolas";
+  background-color: #181a1b;
+  min-height: 100vh;
+}
+
+ol {
+  margin-left: 50px;
+}
+
+a,
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+a:active {
+  color: cadetblue;
+}

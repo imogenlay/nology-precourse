@@ -1,0 +1,24 @@
+main {
+  max-width: 800px;
+}
+
+main a {
+  font-size: 10rem;
+}
+
+main a:link {
+  color: chartreuse;
+}
+
+main a:visited {
+  color: grey;
+}
+
+main a:hover {
+  color: goldenrod;
+}
+
+main a:active {
+  color: black;
+  background-color: red;
+}
