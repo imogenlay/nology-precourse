@@ -1,0 +1,23 @@
+@mixin irish {
+  @media screen and (min-width: 902px) {
+    @content;
+  }
+}
+ 
+@mixin belgian {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin german {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin failure {
+  @media screen and (width: 901px) {
+    @content;
+  }
+}

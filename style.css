@@ -34,15 +34,15 @@ ol {
   margin-left: 50px;
 }
 
-a,
+a {
+  color: white;
+}
 a:visited {
   color: white;
 }
-
 a:hover {
   color: lightblue;
 }
-
 a:active {
   color: cadetblue;
 }

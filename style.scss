@@ -3,48 +3,48 @@
 @use "./scss/mixins";
  
 html {
-  background-color: var.$background-black;
+	background-color: var.$background-black;
 }
 
 body {
-  font-family: "Consolas";
-  color: white;
-  background-color: var.$background-dark;
+	font-family: "Consolas";
+	color: white;
+	background-color: var.$background-dark;
 
-  padding: 0 60px;
-  margin: 0 20%;
-  height: 100vh; 
+	padding: 0 60px;
+	margin: 0 20%;
+	height: 100vh; 
   
-  @include mixins.flex(column, flex-start, flex-start);
-  gap: 20px;
+	@include mixins.flex(column, flex-start, flex-start);
+	gap: 20px;
 }
 
 header {
-  padding-top: 40px;
+	padding-top: 40px;
 }
 
 main { 
-  border: 1px white dashed;
-  flex-grow: 1; 
+	border: 1px white dashed;
+	flex-grow: 1; 
 }
 
 ol {
-  margin-left: 50px;
+	margin-left: 50px;
 }
 
-a,
-a:visited {
-  color: white;
+a { 
+	color: white;
+	&:visited {
+		color: white;
+	}
+	&:hover {
+		color: lightblue;
+	}
+	&:active {
+		color: cadetblue;
+	}
 }
-
-a:hover {
-  color: lightblue;
-}
-
-a:active {
-  color: cadetblue;
-}
-
+ 
 .pokemon {
   width: 100px;
   height: 100px;

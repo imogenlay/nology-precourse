@@ -1,0 +1,65 @@
+@use "./scss/mixins";
+@use "./scss/variables" as var;
+@use "./scss/media-queries" as q;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Nunito Sans", sans-serif;
+	font-optical-sizing: auto;
+}
+ 
+main {
+	margin: auto;
+	width: 65%;
+ 
+	@include q.belgian { 
+		width: 75%;
+	}
+	@include q.german { 
+		width: 85%;
+	}
+}
+
+ul {
+	margin-left: 1rem;
+}
+
+section {
+	border: 1px black solid;
+	margin: auto; 
+	aspect-ratio: 2 / 1;
+
+	@include mixins.flex(row, flex-start, stretch);
+ 
+	@include q.belgian { 
+		aspect-ratio: 15 / 13;
+	}
+	@include q.german { 
+		aspect-ratio: 5 / 3;
+		flex-direction: column;
+	}
+
+	p {
+		display: none;
+		@include q.failure {
+			display: block;
+			margin: 40px;
+		}
+	}
+}
+
+div {
+	flex-grow: 1;
+
+	@include q.irish {
+		@include mixins.flag-div(var.$flag-irish-green, var.$flag-irish-white, var.$flag-irish-orange);
+	}
+	@include q.belgian {
+		@include mixins.flag-div(var.$flag-belgium-black, var.$flag-belgium-yellow, var.$flag-belgium-red); 
+	}
+	@include q.german {
+		@include mixins.flag-div(var.$flag-germany-black, var.$flag-germany-red, var.$flag-germany-orange);  
+	}
+}
