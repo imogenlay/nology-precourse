@@ -1,4 +1,14 @@
+$white: white;
+$off-white: #fecfc9;
+$peach: #e88375;
+$dark-peach: #b34a3e;
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+	font-weight: 500; 
 }
