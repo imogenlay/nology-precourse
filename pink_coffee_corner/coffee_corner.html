@@ -9,10 +9,176 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- prettier-ignore -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <a href="../index.html"
+        ><img src="./images/mug_hot_pink.svg" class="image__flipped"
+      /></a>
+      <nav>
+        <a href="./about.html">ABOUT</a>
+        <a href="./contact.html">CONTACT</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero__left">
+          <hgroup>
+            <!-- hgroup is the 'header group' element. It is needed here to define the margin. -->
+            <h1 class="main__heading main__heading--color-white">
+              The Pink Coffee Corner
+            </h1>
+            <h2 class="main__subheading main__subheading--color-white">
+              Best coffee in Melbourne
+            </h2>
+            <a href="#reviews">See reviews</a>
+          </hgroup>
+        </div>
+        <div class="hero__right">
+          <img src="./images/hero_image.jpg" />
+        </div>
+      </section>
+      <section class="menu">
+        <h1 class="main__heading main__heading--color-peach">Our Menu</h1>
+        <details>
+          <summary>Food</summary>
+          <div class="menu__container">
+            <div class="menu__card">
+              <img src="./images/chocolate_cupcake.jpg" />
+              <h2>Chocolate Cupcake</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/leaf.svg" /><p>Vegan</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/donuts.jpg" />
+              <h2>Donuts</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/wheat.svg" /><p>Gluten Free</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/raspberry_cupcake.jpg" />
+              <h2>Raspberry Cupcake</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/leaf.svg" /><p>Vegan</p></div>
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/wheat.svg" /><p>Gluten Free</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/vanilla_cake.jpg" />
+              <h2>Vanilla Cake</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/egg.svg" /><p>Contains Egg</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/cheesecake.jpg" />
+              <h2>Cheesecake</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/egg.svg" /><p>Contains Egg</p></div>
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/cow.svg" /><p>Contains Dairy</p></div>
+              </div>
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>Drinks</summary>
+          <div class="menu__container">
+            <div class="menu__card">
+              <img src="./images/coffee.jpg" />
+              <h2>Flat White</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/leaf.svg" /><p>Vegan Options Available</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/green_smoothie.jpg" />
+              <h2>Green Smoothie</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/leaf.svg" /><p>Vegan Options Available</p></div>
+              </div>
+            </div>
+            <div class="menu__card">
+              <img src="./images/peanut_smoothie.jpg" />
+              <h2>Peanut Butter Smoothie</h2>
+              <div class="menu__tag-container">
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/leaf.svg" /><p>Vegan Options Available</p></div>
+                <!-- prettier-ignore -->
+                <div class="menu__tag"><img src="./images/wheat.svg" /><p>Gluten Free</p></div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+      <section class="reviews" id="reviews">
+        <h1 class="main__heading main__heading--color-white">Reviews</h1>
+        <div class="reviews__card-container">
+          <div class="reviews__card">
+            <div class="reviews__card-top">
+              <img src="./images/quote-left.svg" />
+              <p>
+                The Pink Coffee Corner is amazing! Cozy ambiance, perfect
+                lattes, and friendly staff. The avocado toast is a must-try.<br />
+                Definitely coming back!
+              </p>
+              <img src="./images/quote-right.svg" />
+            </div>
+            <div class="reviews__card-bottom">
+              <p>Sarah L.</p>
+              <p>8th July 2024</p>
+            </div>
+          </div>
+          <div class="reviews__card">
+            <div class="reviews__card-top">
+              <img src="./images/quote-left.svg" />
+              <p>
+                Great spot for coffee lovers. Smooth flat white and delicious
+                cake. It can get crowded at lunchtime, but worth the visit for
+                the quality and friendly service.
+              </p>
+              <img src="./images/quote-right.svg" />
+            </div>
+            <div class="reviews__card-bottom">
+              <p>John M.</p>
+              <p>8th July 2024</p>
+            </div>
+          </div>
+          <div class="reviews__card">
+            <div class="reviews__card-top">
+              <img src="./images/quote-left.svg" />
+              <p>
+                The Pink Coffee Corner is my favorite! Perfect mocha, tasty
+                almond croissant, and a welcoming atmosphere. Free Wi-Fi is a
+                bonus. Can't wait to return!
+              </p>
+              <img src="./images/quote-right.svg" />
+            </div>
+            <div class="reviews__card-bottom">
+              <p>Jenny B.</p>
+              <p>4th June 2023</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <a href="../index.html"
+          ><img src="./images/mug_hot.svg" class="image__flipped" />
+          <p>Copyright 2024</p></a
+        >
+        <img src="./images/instagram.svg" />
+      </footer>
+    </main>
   </body>
 </html>

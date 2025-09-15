@@ -1,19 +1,30 @@
-$flag-irish-green: #169B62; 
-$flag-irish-white: #FFFFFF;
-$flag-irish-orange: #FF883E;
+$color-peach: #FAA196; 
+$color-light-peach: #EBC9C4; 
+$color-green: #689572;
+$color-light-green: #82A289;
+$color-grey: #404040;
+$color-white: #FFFFFF;
 
-$flag-belgium-black: #000000; 
-$flag-belgium-yellow: #FDDA24;
-$flag-belgium-red: #EF3340;
-
-$flag-germany-black: #000000; 
-$flag-germany-red: #FF0000;
-$flag-germany-orange: #FFCC00; 
+$standard-gap: 2.25rem;
+$page-edge: 10%;
+$page-width: 80%;
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
+	$standard-gap: 6rem;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+	font-family: "Open Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	color: $color-grey; 
+	
+	user-select: none;
+	text-decoration: none;
+}
+
+p { 
+	user-select: text;
 }

@@ -1,57 +1,243 @@
 @use "./scss/mixins";
-@use "./scss/variables" as var;
+@use "./scss/global" as g;
 @use "./scss/media-queries" as q;
+
+html {
+	background-color: rgb(255, 0, 0);
+}
  
-main {
-	margin: auto;
-	width: 65%;
- 
-	@include q.belgian { 
-		width: 75%;
-	}
-	@include q.german { 
-		width: 85%;
-	}
+header {
+	background-color: g.$color-white; 
 }
 
-ul {
-	margin-left: 1rem;
+footer {
+	background-color: g.$color-light-green; 
 }
-
-section {
-	border: 1px black solid;
-	margin: auto; 
-	aspect-ratio: 2 / 1;
-
-	@include mixins.flex(row, flex-start, stretch);
  
-	@include q.belgian { 
-		aspect-ratio: 15 / 13;
-	}
-	@include q.german { 
-		aspect-ratio: 5 / 3;
-		flex-direction: column;
+header, footer {
+	padding: 0 g.$page-edge;
+	@include mixins.flex(row, space-between, center, 0); 
+	height: 6.5rem;
+
+	a {
+		@include mixins.flex(row, center, center, 1rem); 
+
+		p {
+			color: g.$color-white;
+			font-size: 1.25rem;
+		} 
 	}
 
-	p {
-		display: none;
-		@include q.failure {
-			display: block;
-			margin: 40px;
+	img {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	nav {
+		@include mixins.flex(row, center, center, 4rem); 
+		
+		a {
+			@include mixins.subheading(1.25rem);
 		}
 	}
 }
 
-div {
-	flex-grow: 1;
+.main {
+	&__heading {
+		font-family: "Rammetto One", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 4rem;
+		font-optical-sizing: auto; 
 
-	@include q.irish {
-		@include mixins.flag-div(var.$flag-irish-green, var.$flag-irish-white, var.$flag-irish-orange);
+		&--color
+		{
+			&-white {
+				color: g.$color-white;
+			}
+
+			&-peach {
+				color: g.$color-peach;
+			}
+		}
 	}
-	@include q.belgian {
-		@include mixins.flag-div(var.$flag-belgium-black, var.$flag-belgium-yellow, var.$flag-belgium-red); 
+
+	&__subheading
+	{
+		font-family: "Open Sans", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-size: 1.75rem;
+
+		&--color
+		{
+			&-white {
+				color: g.$color-white;
+			}
+
+			&-peach {
+				color: g.$color-peach;
+			}
+		}
 	}
-	@include q.german {
-		@include mixins.flag-div(var.$flag-germany-black, var.$flag-germany-red, var.$flag-germany-orange);  
+}
+
+.hero {
+	@include mixins.flex(row, stretch, stretch, 0);
+	background-color: g.$color-green;
+	max-height: 46rem; 
+	
+	&__left {
+		flex: 1 1 0px;
+		@include mixins.flex(column, center, flex-start, 0); 
+
+		hgroup {
+			margin: 5% 12.5% 5% calc(g.$page-edge * 2); 
+			@include mixins.flex(column, flex-start, flex-start, 0); 
+			
+			a {
+				border: 3px solid g.$color-white;
+				background-color: transparent;
+				color: g.$color-white;
+				padding: 0.75rem 2.75rem;
+				margin-top: g.$standard-gap;
+
+				@include mixins.subheading(1.75rem);
+
+				&:hover {
+					border: 3px solid g.$color-grey; 
+					color: g.$color-grey; 
+				}
+			}
+		}
 	}
+ 	 
+	&__right {
+		flex: 1 1 0px; 
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; 
+		}
+	}
+}
+
+.menu { 
+	background-color: g.$color-white; 
+	padding: 6rem 0; 
+	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
+
+	details {
+		height: 4.5rem;
+		width: g.$page-width;
+		
+		summary { 
+ 			padding: 1rem 2rem 1rem 3rem;
+			background-color: g.$color-light-peach;
+			color: g.$color-grey;
+			@include mixins.subheading(1.75rem); 
+		}
+	}
+
+	details[open] {   
+		height: auto; 
+	}
+
+	&__container {
+		margin-top: g.$standard-gap;   
+		display: flex;
+		flex-wrap: wrap;
+		@include mixins.flex(row, space-between, flex-start, g.$standard-gap);  
+	}
+
+	&__card {
+		width: calc(33.33% - g.$standard-gap);
+		aspect-ratio: 4 / 5;
+
+		background-color: g.$color-light-peach; 
+
+		@include mixins.flex(column, flex-start, center, 1.25rem); 
+		padding: 1.5rem;
+
+		img {
+			width: 100%;
+		}
+
+		h2 {
+			user-select: text;
+			color: g.$color-grey;
+			@include mixins.subheading(1.75rem);
+		}
+	}
+
+	&__tag-container {
+		@include mixins.flex(row, flex-start, center, 2rem); 
+	}
+
+	&__tag {
+		@include mixins.flex(row, flex-start, center, 0.5rem); 
+		
+		img {
+			width: 1.75rem;
+			height: 1.75rem;
+		}
+
+		p { 
+			font-size: 1rem;
+		}
+	}
+}
+
+.reviews {
+	background-color: g.$color-peach;	
+	padding: 6rem 0; 
+	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
+
+	&__card-container 
+	{ 
+		width: g.$page-width;
+		@include mixins.flex(row, center, stretch, g.$standard-gap); 
+		flex-wrap: wrap;
+	}
+
+	&__card
+	{ 
+		width: calc(50% - 0.5 * g.$standard-gap);
+		border: 3px solid g.$color-white;
+		padding: 1.5rem 2rem; 
+		@include mixins.flex(column, space-between, space-between, 0);
+
+		&-top
+		{
+			@include mixins.flex(row, flex-start, flex-start, 1rem); 
+			padding-bottom: 1rem;
+			
+			img {
+				width: 2.5rem;
+				height: 2.5rem;
+				
+				&:nth-child(3) {
+					align-self: flex-end;
+				}
+			}
+
+			p {
+				text-align: center;
+  				font-style: italic;
+				@include mixins.subheading(1.5rem);
+			}
+		}
+
+		&-bottom
+		{
+			@include mixins.flex(row, space-between, flex-start, 0);
+			font-size: 1.25rem;
+		}
+	}
+}
+
+.image__flipped
+{
+    transform: scale(-1, 1); /* Flip SVG horizontally */
 }

@@ -1,18 +1,14 @@
-@mixin flex($direction: row, $justify: center, $align: center) {
+@mixin flex($direction, $justify, $align, $gap) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
+    gap: $gap;
 }
 
-@mixin flag-div($color1, $color2, $color3) {
-	&:nth-child(1) {
-		background-color: $color1;
-	}
-	&:nth-child(2) {
-		background-color: $color2;
-	}
-	&:nth-child(3) {
-		background-color: $color3;
-	}
+
+
+@mixin subheading($size) {
+	font-size: $size;
+	font-weight: 700;
 }
