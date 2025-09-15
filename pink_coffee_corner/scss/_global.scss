@@ -3,6 +3,7 @@ $color-light-peach: #EBC9C4;
 $color-green: #689572;
 $color-light-green: #82A289;
 $color-grey: #404040;
+$color-light-grey: #b3b3b3;
 $color-white: #FFFFFF;
 
 $standard-gap: 2.25rem;
@@ -25,6 +26,6 @@ $page-width: 80%;
 	text-decoration: none;
 }
 
-p { 
+p, a { 
 	user-select: text;
 }

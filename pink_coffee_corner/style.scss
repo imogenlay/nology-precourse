@@ -1,25 +1,35 @@
 @use "./scss/mixins";
 @use "./scss/global" as g;
 @use "./scss/media-queries" as q;
-
-html {
-	background-color: rgb(255, 0, 0);
+ 
+body {
+	background-color: #aca3b4;
+	min-height: 100vh;
+	@include mixins.flex(column, flex-start, flex-start, 0); 
 }
  
 header {
 	background-color: g.$color-white; 
 }
 
-footer {
+main {
+	width: 100%;
+	flex-grow: 1; 
+	@include mixins.flex(column, stretch, stretch, 0); 
+}
+
+footer { 
 	background-color: g.$color-light-green; 
 }
  
 header, footer {
-	padding: 0 g.$page-edge;
-	@include mixins.flex(row, space-between, center, 0); 
+	width: 100vw;
 	height: 6.5rem;
 
-	a {
+	padding: 0 g.$page-edge;
+	@include mixins.flex(row, space-between, center, 0); 
+
+	a, b {
 		@include mixins.flex(row, center, center, 1rem); 
 
 		p {
@@ -36,52 +46,18 @@ header, footer {
 	nav {
 		@include mixins.flex(row, center, center, 4rem); 
 		
-		a {
+		a, b { 
+			border: 1px red solid;
+			width: 6rem;
 			@include mixins.subheading(1.25rem);
 		}
-	}
-}
 
-.main {
-	&__heading {
-		font-family: "Rammetto One", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 4rem;
-		font-optical-sizing: auto; 
-
-		&--color
-		{
-			&-white {
-				color: g.$color-white;
-			}
-
-			&-peach {
-				color: g.$color-peach;
-			}
-		}
-	}
-
-	&__subheading
-	{
-		font-family: "Open Sans", sans-serif;
-		font-optical-sizing: auto;
-		font-weight: 400;
-		font-size: 1.75rem;
-
-		&--color
-		{
-			&-white {
-				color: g.$color-white;
-			}
-
-			&-peach {
-				color: g.$color-peach;
-			}
+		b {
+			color: g.$color-light-grey;
 		}
 	}
 }
-
+ 
 .hero {
 	@include mixins.flex(row, stretch, stretch, 0);
 	background-color: g.$color-green;
@@ -96,7 +72,7 @@ header, footer {
 			@include mixins.flex(column, flex-start, flex-start, 0); 
 			
 			a {
-				border: 3px solid g.$color-white;
+				@include mixins.coffee_border(g.$color-white); 
 				background-color: transparent;
 				color: g.$color-white;
 				padding: 0.75rem 2.75rem;
@@ -105,7 +81,7 @@ header, footer {
 				@include mixins.subheading(1.75rem);
 
 				&:hover {
-					border: 3px solid g.$color-grey; 
+					@include mixins.coffee_border(g.$color-grey); 
 					color: g.$color-grey; 
 				}
 			}
@@ -204,7 +180,7 @@ header, footer {
 	&__card
 	{ 
 		width: calc(50% - 0.5 * g.$standard-gap);
-		border: 3px solid g.$color-white;
+		@include mixins.coffee_border(g.$color-white);
 		padding: 1.5rem 2rem; 
 		@include mixins.flex(column, space-between, space-between, 0);
 
@@ -233,6 +209,121 @@ header, footer {
 		{
 			@include mixins.flex(row, space-between, flex-start, 0);
 			font-size: 1.25rem;
+		}
+	}
+}
+
+.contact { 
+	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
+	padding: 6rem 0;
+	background-color: g.$color-peach;  
+	flex-grow: 1;
+	
+	form {
+		width: min(g.$page-width, 40rem);
+		@include mixins.flex(column, flex-start, stretch, 0.5rem); 
+
+		div { 
+			@include mixins.flex(row, flex-start, stretch, 1rem); 
+
+			p {
+				width: 10rem;
+				height: 2rem;
+			}
+		}
+
+		label {
+			@include mixins.subheading(1rem);
+			display: block; 
+			text-align: end; 
+			align-content: center;
+			width: 10rem; 
+		}
+
+		input, select, textarea {
+			flex-grow: 1;
+			padding: 0.25rem;
+			font-size: 1rem;
+			
+			background-color: g.$color-white;
+			/*@include mixins.coffee_border(g.$color-grey);*/
+			border: 1px solid g.$color-white;
+
+			&::placeholder
+			{
+				color: g.$color-light-grey;
+			}
+		}
+
+
+
+		input[type=submit] {
+			border: 0;
+			&:hover {
+				background-color: g.$color-light-peach;
+
+			}
+		}
+ 
+		textarea {
+			resize: none;
+			height: 10rem;
+		}
+	}
+
+	&__disabled-select {
+		color: g.$color-light-grey;
+	}
+
+	&__return {
+		color: g.$color-white;
+		@include mixins.coffee_border(g.$color-white);
+		@include mixins.subheading(1.25rem); 
+		padding: 1rem 6rem;
+
+		&:hover {
+			color: g.$color-light-peach;
+			@include mixins.coffee_border(g.$color-light-peach);
+		}
+	}
+}
+
+.main {
+	&__heading {
+		font-family: "Rammetto One", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 4rem;
+		font-optical-sizing: auto; 
+
+		&--color
+		{
+			&-white {
+				color: g.$color-white;
+			}
+
+			&-peach {
+				color: g.$color-peach;
+			}
+		}
+	}
+
+	&__subheading
+	{
+		font-family: "Open Sans", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-size: 1.75rem;
+
+		&--color
+		{
+			&-white {
+				color: g.$color-white;
+			}
+
+			&-peach {
+				color: g.$color-peach;
+			}
 		}
 	}
 }

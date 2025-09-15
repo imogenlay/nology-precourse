@@ -6,9 +6,11 @@
     gap: $gap;
 }
 
-
-
 @mixin subheading($size) {
 	font-size: $size;
 	font-weight: 700;
+}
+
+@mixin coffee_border($color) {
+	border: 3px solid $color;
 }

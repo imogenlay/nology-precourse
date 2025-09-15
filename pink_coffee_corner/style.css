@@ -11,16 +11,32 @@
   text-decoration: none;
 }
 
-p {
+p, a {
   user-select: text;
 }
 
-html {
-  background-color: rgb(255, 0, 0);
+body {
+  background-color: #aca3b4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
 }
 
 header {
   background-color: #FFFFFF;
+}
+
+main {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0;
 }
 
 footer {
@@ -28,22 +44,23 @@ footer {
 }
 
 header, footer {
+  width: 100vw;
+  height: 6.5rem;
   padding: 0 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  height: 6.5rem;
 }
-header a, footer a {
+header a, header b, footer a, footer b {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-header a p, footer a p {
+header a p, header b p, footer a p, footer b p {
   color: #FFFFFF;
   font-size: 1.25rem;
 }
@@ -58,35 +75,14 @@ header nav, footer nav {
   align-items: center;
   gap: 4rem;
 }
-header nav a, footer nav a {
+header nav a, header nav b, footer nav a, footer nav b {
+  border: 1px red solid;
+  width: 6rem;
   font-size: 1.25rem;
   font-weight: 700;
 }
-
-.main__heading {
-  font-family: "Rammetto One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 4rem;
-  font-optical-sizing: auto;
-}
-.main__heading--color-white {
-  color: #FFFFFF;
-}
-.main__heading--color-peach {
-  color: #FAA196;
-}
-.main__subheading {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: 1.75rem;
-}
-.main__subheading--color-white {
-  color: #FFFFFF;
-}
-.main__subheading--color-peach {
-  color: #FAA196;
+header nav b, footer nav b {
+  color: #b3b3b3;
 }
 
 .hero {
@@ -267,6 +263,105 @@ header nav a, footer nav a {
   align-items: flex-start;
   gap: 0;
   font-size: 1.25rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2.25rem;
+  padding: 6rem 0;
+  background-color: #FAA196;
+  flex-grow: 1;
+}
+.contact form {
+  width: min(80%, 40rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.contact form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+.contact form div p {
+  width: 10rem;
+  height: 2rem;
+}
+.contact form label {
+  font-size: 1rem;
+  font-weight: 700;
+  display: block;
+  text-align: end;
+  align-content: center;
+  width: 10rem;
+}
+.contact form input, .contact form select, .contact form textarea {
+  flex-grow: 1;
+  padding: 0.25rem;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  /*@include mixins.coffee_border(g.$color-grey);*/
+  border: 1px solid #FFFFFF;
+}
+.contact form input::placeholder, .contact form select::placeholder, .contact form textarea::placeholder {
+  color: #b3b3b3;
+}
+.contact form input[type=submit] {
+  border: 0;
+}
+.contact form input[type=submit]:hover {
+  background-color: #EBC9C4;
+}
+.contact form textarea {
+  resize: none;
+  height: 10rem;
+}
+.contact__disabled-select {
+  color: #b3b3b3;
+}
+.contact__return {
+  color: #FFFFFF;
+  border: 3px solid #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 1rem 6rem;
+}
+.contact__return:hover {
+  color: #EBC9C4;
+  border: 3px solid #EBC9C4;
+}
+
+.main__heading {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+  font-optical-sizing: auto;
+}
+.main__heading--color-white {
+  color: #FFFFFF;
+}
+.main__heading--color-peach {
+  color: #FAA196;
+}
+.main__subheading {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+.main__subheading--color-white {
+  color: #FFFFFF;
+}
+.main__subheading--color-peach {
+  color: #FAA196;
 }
 
 .image__flipped {
