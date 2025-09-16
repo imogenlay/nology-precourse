@@ -69,13 +69,11 @@ header, footer {
 @media screen and (min-width: 577px) and (max-width: 992px) {
   header, footer {
     height: 4.75rem;
-    background-color: rgb(156, 156, 156);
   }
 }
 @media screen and (max-width: 576px) {
   header, footer {
     height: 3rem;
-    background-color: rgb(86, 86, 86);
   }
 }
 header, footer {
@@ -141,16 +139,16 @@ header nav, footer nav {
   justify-content: center;
   align-items: center;
   gap: 0;
-  gap: 2rem;
+  gap: 3rem;
 }
 @media screen and (max-width: 576px) {
   header nav, footer nav {
-    gap: 1rem;
+    gap: 2rem;
   }
 }
 @media screen and (max-width: 576px) {
   header nav, footer nav {
-    gap: 0.5rem;
+    gap: 1rem;
   }
 }
 header nav a, header nav b, footer nav a, footer nav b {
@@ -165,19 +163,6 @@ header nav a, header nav b, footer nav a, footer nav b {
 @media screen and (max-width: 576px) {
   header nav a, header nav b, footer nav a, footer nav b {
     font-size: 0.75rem;
-  }
-}
-header nav a, header nav b, footer nav a, footer nav b {
-  width: 6.5rem;
-}
-@media screen and (min-width: 577px) and (max-width: 992px) {
-  header nav a, header nav b, footer nav a, footer nav b {
-    width: 5rem;
-  }
-}
-@media screen and (max-width: 576px) {
-  header nav a, header nav b, footer nav a, footer nav b {
-    width: 3.5rem;
   }
 }
 header nav b, footer nav b {
@@ -453,7 +438,6 @@ main {
   height: 1.75rem;
 }
 .menu__tag p {
-  /*max-width: 4.5rem;*/
   font-size: 1rem;
 }
 

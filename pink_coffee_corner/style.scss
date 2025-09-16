@@ -30,13 +30,11 @@ header, footer {
 	height: 6.5rem; 
 	
 	@include q.tablet { 
-		height: 4.75rem;
-		background-color: rgb(156, 156, 156);
+		height: 4.75rem; 
 	}
 
 	@include q.phone { 
-		height: 3rem;
-		background-color: rgb(86, 86, 86);
+		height: 3rem; 
 	}
 
 	@include mixins.header_padding();
@@ -58,28 +56,18 @@ header, footer {
 	nav {
 		@include mixins.flex(row, center, center, 0); 
 		
-		gap: 2rem;
+		gap: 3rem;
 		@include q.phone { 
-			gap: 1rem;
+			gap: 2rem;
 		}
 
 		@include q.phone { 
-			gap: 0.5rem;
+			gap: 1rem;
 		}
 		
 		a, b {  
 			font-weight: 700;
-			@include mixins.header_font_size();
-
-			width: 6.5rem;
-			
-			@include q.tablet { 
-				width: 5rem;
-			}
-
-			@include q.phone { 
-				width: 3.5rem;
-			}
+			@include mixins.header_font_size(); 
 		}
 
 		b {
@@ -271,8 +259,7 @@ main {
 			height: 1.75rem;
 		}
 
-		p { 
-			/*max-width: 4.5rem;*/
+		p {  
 			font-size: 1rem;
 		}
 	}
