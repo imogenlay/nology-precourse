@@ -6,16 +6,19 @@ body {
 	background-color: #aca3b4;
 	min-height: 100vh;
 	@include mixins.flex(column, flex-start, flex-start, 0); 
-}
- 
-header {
-	background-color: g.$color-white; 
+	overflow: visible;
 }
 
-main {
-	width: 100%;
-	flex-grow: 1; 
-	@include mixins.flex(column, stretch, stretch, 0); 
+h1, h2, h3 {
+	overflow: hidden;
+}
+
+header {
+	background-color: g.$color-white;
+  	position: sticky;
+	top: 0;
+	z-index: 999;
+	border-bottom: 1px solid g.$color-peach;
 }
 
 footer { 
@@ -23,33 +26,60 @@ footer {
 }
  
 header, footer {
-	width: 100vw;
-	height: 6.5rem;
+	width: 100%;
+	height: 6.5rem; 
+	
+	@include q.tablet { 
+		height: 4.75rem;
+		background-color: rgb(156, 156, 156);
+	}
 
-	padding: 0 g.$page-edge;
-	@include mixins.flex(row, space-between, center, 0); 
+	@include q.phone { 
+		height: 3rem;
+		background-color: rgb(86, 86, 86);
+	}
+
+	@include mixins.header_padding();
+	@include mixins.flex(row, space-between, center, 0);
 
 	a, b {
-		@include mixins.flex(row, center, center, 1rem); 
+		@include mixins.flex(row, center, center, 1rem);
 
 		p {
 			color: g.$color-white;
-			font-size: 1.25rem;
+			@include mixins.header_font_size();
 		} 
 	}
 
 	img {
-		width: 4rem;
-		height: 4rem;
+		@include mixins.header_image_size();
 	}
 
 	nav {
-		@include mixins.flex(row, center, center, 4rem); 
+		@include mixins.flex(row, center, center, 0); 
 		
-		a, b { 
-			border: 1px red solid;
-			width: 6rem;
-			@include mixins.subheading(1.25rem);
+		gap: 2rem;
+		@include q.phone { 
+			gap: 1rem;
+		}
+
+		@include q.phone { 
+			gap: 0.5rem;
+		}
+		
+		a, b {  
+			font-weight: 700;
+			@include mixins.header_font_size();
+
+			width: 6.5rem;
+			
+			@include q.tablet { 
+				width: 5rem;
+			}
+
+			@include q.phone { 
+				width: 3.5rem;
+			}
 		}
 
 		b {
@@ -58,27 +88,62 @@ header, footer {
 	}
 }
  
+main {
+	width: 100%;
+	flex-grow: 1; 
+	@include mixins.flex(column, stretch, stretch, 0);
+}
+
 .hero {
+	background-color: g.$color-green;  
 	@include mixins.flex(row, stretch, stretch, 0);
-	background-color: g.$color-green;
-	max-height: 46rem; 
+	height: 46rem;
+
+	@include q.tablet { 
+		height: 40rem;
+	}
+
+	@include q.phone { 
+		flex-direction: column;
+		height: 34rem;
+	}
+
+	@include q.micro { 
+		flex-direction: column;
+		height: 46rem;
+	}
 	
 	&__left {
-		flex: 1 1 0px;
+		@include mixins.hero_side();
 		@include mixins.flex(column, center, flex-start, 0); 
 
 		hgroup {
-			margin: 5% 12.5% 5% calc(g.$page-edge * 2); 
+			@include mixins.hero_margin();
 			@include mixins.flex(column, flex-start, flex-start, 0); 
 			
 			a {
 				@include mixins.coffee_border(g.$color-white); 
 				background-color: transparent;
 				color: g.$color-white;
-				padding: 0.75rem 2.75rem;
-				margin-top: g.$standard-gap;
+				overflow: hidden;
 
 				@include mixins.subheading(1.75rem);
+				padding: 0.75rem 2.75rem;
+				margin-top: var(--standard-gap);
+					
+				@include q.tablet { 
+					@include mixins.subheading(1.25rem);
+					padding: 0.5rem 2.25rem;
+					margin-top: calc(var(--standard-gap) - 0.5rem);
+				}
+			
+				@include q.phone { 
+					@include mixins.subheading(1rem);
+					padding: 0.25rem 1.75rem;
+					margin-top: calc(var(--standard-gap) - 0.5rem);  
+					align-self: center;
+				}
+
 
 				&:hover {
 					@include mixins.coffee_border(g.$color-grey); 
@@ -89,30 +154,47 @@ header, footer {
 	}
  	 
 	&__right {
-		flex: 1 1 0px; 
+		@include mixins.hero_side();
 
 		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover; 
+			@include mixins.img_cover();
 		}
 	}
 }
 
 .menu { 
 	background-color: g.$color-white; 
-	padding: 6rem 0; 
-	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
+	@include mixins.section_padding();
+	@include mixins.flex(column, flex-start, center, var(--standard-gap));
 
 	details {
+		@include mixins.page_width();
 		height: 4.5rem;
-		width: g.$page-width;
 		
+		@include q.tablet { 
+			height: 4rem;
+		}
+		
+		@include q.phone { 
+			height: 3rem;
+		}
+
 		summary { 
- 			padding: 1rem 2rem 1rem 3rem;
 			background-color: g.$color-light-peach;
 			color: g.$color-grey;
-			@include mixins.subheading(1.75rem); 
+
+			@include mixins.subheading(1.75rem);
+ 			padding: 1rem 2rem 1rem 3rem;
+			
+			@include q.tablet { 
+			    @include mixins.subheading(1.5rem);
+ 				padding: 0.75rem 1.5rem 0.75rem 2rem;
+			}
+		
+			@include q.phone { 
+			    @include mixins.subheading(1.25rem);
+ 				padding: 0.5rem 1rem 0.5rem 1rem;
+			}
 		}
 	}
 
@@ -121,34 +203,64 @@ header, footer {
 	}
 
 	&__container {
-		margin-top: g.$standard-gap;   
+		margin-top: var(--standard-gap);   
 		display: flex;
 		flex-wrap: wrap;
-		@include mixins.flex(row, space-between, flex-start, g.$standard-gap);  
+		@include mixins.flex(row, space-between, stretch, var(--standard-gap));  
 	}
 
 	&__card {
-		width: calc(33.33% - g.$standard-gap);
-		aspect-ratio: 4 / 5;
-
 		background-color: g.$color-light-peach; 
-
 		@include mixins.flex(column, flex-start, center, 1.25rem); 
-		padding: 1.5rem;
+		padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
 
-		img {
+		max-width: calc(33.33% - var(--standard-gap) / 1.5); 
+
+		@include q.phone { 
+			max-width: calc(50% - var(--standard-gap) / 1.5); 
+		}
+				
+		&-image-container {
 			width: 100%;
+			aspect-ratio: 1 / 1; 
+			overflow: hidden;
+			
+			img {
+				@include mixins.img_cover();
+			}
 		}
 
 		h2 {
 			user-select: text;
+			text-align: center;
 			color: g.$color-grey;
-			@include mixins.subheading(1.75rem);
+			@include mixins.subheading(1.75rem); 
+			
+			@include q.tablet { 
+			    @include mixins.subheading(1.25rem);
+			}
+		
+			@include q.phone { 
+			    @include mixins.subheading(1rem);
+			}
 		}
 	}
 
 	&__tag-container {
-		@include mixins.flex(row, flex-start, center, 2rem); 
+		@include mixins.flex(row, flex-start, center, 0); 
+		flex-wrap: wrap;
+		flex-grow: 1;
+		align-items: flex-end;
+
+		gap: 0.25rem 1rem;
+
+		@include q.tablet {
+			gap: 0.25rem 1rem;
+		}
+		
+		@include q.phone { 
+			gap: 0.25rem 1rem;
+		}
 	}
 
 	&__tag {
@@ -160,6 +272,7 @@ header, footer {
 		}
 
 		p { 
+			/*max-width: 4.5rem;*/
 			font-size: 1rem;
 		}
 	}
@@ -167,41 +280,76 @@ header, footer {
 
 .reviews {
 	background-color: g.$color-peach;	
-	padding: 6rem 0; 
-	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
+	@include mixins.section_padding();
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
 
 	&__card-container 
 	{ 
-		width: g.$page-width;
-		@include mixins.flex(row, center, stretch, g.$standard-gap); 
+		@include mixins.page_width();
+		@include mixins.flex(row, center, stretch, var(--standard-gap)); 
 		flex-wrap: wrap;
 	}
 
 	&__card
 	{ 
-		width: calc(50% - 0.5 * g.$standard-gap);
 		@include mixins.coffee_border(g.$color-white);
+		@include mixins.flex(column, space-between, space-between, 0); 
+
+		width: calc(50% - 0.5 * var(--standard-gap));
 		padding: 1.5rem 2rem; 
-		@include mixins.flex(column, space-between, space-between, 0);
+
+		@include q.tablet { 
+			width: 100%;
+			padding: 1rem 1.5rem; 
+		}
+		
+		@include q.phone { 
+			width: 100%;
+			padding: 0.5rem 1rem; 
+		}
 
 		&-top
 		{
 			@include mixins.flex(row, flex-start, flex-start, 1rem); 
 			padding-bottom: 1rem;
 			
+			@include q.phone { 
+				gap: 0.25rem;
+			}
+
 			img {
+				flex: 0 0 auto;
+				
 				width: 2.5rem;
 				height: 2.5rem;
+
+				@include q.tablet { 
+					width: 2rem;
+					height: 2rem;
+				}
 				
+				@include q.phone {  
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+
 				&:nth-child(3) {
 					align-self: flex-end;
-				}
+				}				
 			}
 
 			p {
 				text-align: center;
   				font-style: italic;
 				@include mixins.subheading(1.5rem);
+
+				@include q.tablet { 
+					@include mixins.subheading(1.25rem);
+				}
+				
+				@include q.phone { 
+					@include mixins.subheading(1rem);
+				}
 			}
 		}
 
@@ -209,22 +357,36 @@ header, footer {
 		{
 			@include mixins.flex(row, space-between, flex-start, 0);
 			font-size: 1.25rem;
+			@include q.tablet { 
+				font-size: 1rem;
+			}
+				
+			@include q.phone { 
+				font-size: 0.75rem;
+			}
 		}
 	}
 }
 
 .contact { 
-	@include mixins.flex(column, flex-start, center, g.$standard-gap); 
-	padding: 6rem 0;
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
+	@include mixins.section_padding();
 	background-color: g.$color-peach;  
 	flex-grow: 1;
+
+	p { 
+		padding: 0 2rem;
+		align-self: center;
+	}
 	
 	form {
-		width: min(g.$page-width, 40rem);
+		@include mixins.page_width(40rem);
 		@include mixins.flex(column, flex-start, stretch, 0.5rem); 
+		overflow: visible;
 
 		div { 
 			@include mixins.flex(row, flex-start, stretch, 1rem); 
+			overflow: visible;
 
 			p {
 				width: 10rem;
@@ -237,16 +399,15 @@ header, footer {
 			display: block; 
 			text-align: end; 
 			align-content: center;
-			width: 10rem; 
+			min-width: 8rem; 
 		}
 
 		input, select, textarea {
 			flex-grow: 1;
 			padding: 0.25rem;
-			font-size: 1rem;
+			font-size: 1rem; 
 			
 			background-color: g.$color-white;
-			/*@include mixins.coffee_border(g.$color-grey);*/
 			border: 1px solid g.$color-white;
 
 			&::placeholder
@@ -255,10 +416,10 @@ header, footer {
 			}
 		}
 
-
-
 		input[type=submit] {
 			border: 0;
+			min-width: calc(100% - 9rem); /* 8rem for min-width and 1rem for gap */
+			
 			&:hover {
 				background-color: g.$color-light-peach;
 
@@ -288,13 +449,69 @@ header, footer {
 	}
 }
 
+.about { 
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
+	@include mixins.section_padding();
+	background-color: g.$color-peach;
+	flex-grow: 1;
+	
+	p {
+		padding-bottom: 1rem;
+		@include mixins.subheading(1.25rem);
+		
+		@include q.tablet { 
+			@include mixins.subheading(1rem);
+		}
+
+		@include q.phone { 
+			@include mixins.subheading(0.75rem);
+		}
+	}
+
+	img { 
+		flex: 0 0 auto;
+		width: 230px;
+		
+		@include q.tablet { 
+			width: 170px;
+		}
+
+		@include q.phone { 
+			width: 110px;
+		}
+	}
+
+	hr {
+		@include mixins.about_width();
+		border: 1px solid g.$color-white;
+	}
+
+	&__horizontal {
+		@include mixins.flex(row, flex-start, center, var(--standard-gap)); 
+		@include mixins.about_width(); 
+
+		align-items: start;
+	}
+}
+
 .main {
-	&__heading {
+	&__heading { 
 		font-family: "Rammetto One", sans-serif;
 		font-weight: 400;
 		font-style: normal;
-		font-size: 4rem;
 		font-optical-sizing: auto; 
+		
+		
+		font-size: 4rem;
+		@include q.tablet { 
+			font-size: 3rem;
+		}
+
+		@include q.phone { 
+			font-size: 2rem;
+			text-align: center;
+		}
+
 
 		&--color
 		{
@@ -309,11 +526,21 @@ header, footer {
 	}
 
 	&__subheading
-	{
+	{ 
 		font-family: "Open Sans", sans-serif;
 		font-optical-sizing: auto;
 		font-weight: 400;
+				
 		font-size: 1.75rem;
+		@include q.tablet { 
+			font-size: 1.5rem;
+		}
+
+		@include q.phone { 
+			font-size: 1.25rem;
+			text-align: center;
+			width: 100%;
+		}
 
 		&--color
 		{

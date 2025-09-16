@@ -6,12 +6,9 @@ $color-grey: #404040;
 $color-light-grey: #b3b3b3;
 $color-white: #FFFFFF;
 
-$standard-gap: 2.25rem;
-$page-edge: 10%;
-$page-width: 80%;
-
+@use "./media-queries" as q;
+ 
 * {
-	$standard-gap: 6rem;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -24,8 +21,24 @@ $page-width: 80%;
 	
 	user-select: none;
 	text-decoration: none;
+		
+	overflow-x: hidden;
 }
 
 p, a { 
 	user-select: text;
 }
+
+:root {
+	--standard-gap: 2.25rem;
+  
+	@include q.tablet {
+		--standard-gap: 1.5rem;
+	}
+	@include q.phone { 
+		--standard-gap: 1rem;
+	}
+	@include q.micro { 
+		--standard-gap: 0.75rem;
+	}
+} 

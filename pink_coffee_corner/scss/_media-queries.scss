@@ -1,23 +1,23 @@
-@mixin irish {
-  @media screen and (min-width: 902px) {
+@mixin micro {
+  @media screen and (max-width: 302px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 576px) {
     @content;
   }
 }
  
-@mixin belgian {
-  @media screen and (max-width: 900px) {
+@mixin tablet {
+  @media screen and (min-width: 577px) and (max-width: 992px) {
     @content;
   }
 }
 
-@mixin german {
-  @media screen and (max-width: 600px) {
-    @content;
-  }
-}
-
-@mixin failure {
-  @media screen and (width: 901px) {
+@mixin desktop {
+  @media screen and (min-width: 993px) {
     @content;
   }
 }
