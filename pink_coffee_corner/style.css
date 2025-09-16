@@ -746,22 +746,6 @@ main {
     width: 110px;
   }
 }
-.about hr {
-  width: 800px;
-}
-@media screen and (min-width: 577px) and (max-width: 992px) {
-  .about hr {
-    width: 500px;
-  }
-}
-@media screen and (max-width: 576px) {
-  .about hr {
-    width: 250px;
-  }
-}
-.about hr {
-  border: 1px solid #FFFFFF;
-}
 .about__horizontal {
   display: flex;
   flex-direction: row;

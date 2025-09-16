@@ -467,12 +467,7 @@ main {
 			width: 110px;
 		}
 	}
-
-	hr {
-		@include mixins.about_width();
-		border: 1px solid g.$color-white;
-	}
-
+ 
 	&__horizontal {
 		@include mixins.flex(row, flex-start, center, var(--standard-gap)); 
 		@include mixins.about_width(); 
