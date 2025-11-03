@@ -1,0 +1,89 @@
+@use "./mixins";
+@use "./global" as g;
+@use "./media-queries" as q;
+
+.contact { 
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
+	@include mixins.section_padding();
+	background-color: g.$color-peach;  
+	flex-grow: 1;
+
+	p { 
+		padding: 0 2rem;
+		align-self: center;
+	}
+	
+	form {
+		@include mixins.page_width(40rem);
+		@include mixins.flex(column, flex-start, stretch, 0.5rem); 
+		overflow: visible;
+
+		div { 
+			@include mixins.flex(row, flex-start, stretch, 1rem); 
+			overflow: visible;
+
+			p {
+				width: 10rem;
+				height: 2rem;
+			}
+		}
+
+		label {
+			@include mixins.subheading(1rem);
+			display: block; 
+			text-align: end; 
+			align-content: center;
+			min-width: 8rem; 
+		}
+
+		input, select, textarea {
+			flex-grow: 1;
+			padding: 0.25rem;
+			font-size: 1rem; 
+			
+			background-color: g.$color-white;
+			border: 1px solid g.$color-white;
+
+			&::placeholder
+			{
+				color: g.$color-light-grey;
+			}
+		}
+		
+		input[type=submit] {  
+			min-width: calc(100% - 9rem); /* 8rem for min-width and 1rem for gap */
+			@include mixins.coffee_border(g.$color-white); 
+			background-color: transparent;
+			color: g.$color-white;
+			overflow: hidden;
+
+			@include mixins.subheading(1.25rem);
+			padding: 0.75rem 2.75rem;
+			margin-top: 0.25rem;
+			
+			&:hover {
+				background-color: g.$color-light-peach;
+			}
+		}
+ 
+		textarea {
+			resize: none;
+			height: 10rem;
+		}
+	}
+
+	&__disabled-select {
+		color: g.$color-light-grey;
+	}
+
+	&__return {
+		@include mixins.coffee_border(g.$color-white);
+		color: g.$color-white;
+		@include mixins.subheading(1.25rem); 
+		padding: 1rem 6rem;
+
+		&:hover {
+			background-color: g.$color-light-peach;
+		}
+	}
+}

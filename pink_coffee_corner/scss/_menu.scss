@@ -1,0 +1,123 @@
+@use "./mixins";
+@use "./global" as g;
+@use "./media-queries" as q;
+
+.menu { 
+	background-color: g.$color-white; 
+	@include mixins.section_padding();
+	@include mixins.flex(column, flex-start, center, var(--standard-gap));
+
+	details {
+		@include mixins.page_width();
+		height: 4.5rem;
+		
+		@include q.tablet { 
+			height: 4rem;
+		}
+		
+		@include q.phone { 
+			height: 3rem;
+		}
+
+		summary { 
+			background-color: g.$color-light-peach;
+			color: g.$color-grey;
+
+			@include mixins.subheading(1.75rem);
+ 			padding: 1rem 2rem 1rem 3rem;
+			
+			@include q.tablet { 
+			    @include mixins.subheading(1.5rem);
+ 				padding: 0.75rem 1.5rem 0.75rem 2rem;
+			}
+		
+			@include q.phone { 
+			    @include mixins.subheading(1.25rem);
+ 				padding: 0.5rem 1rem 0.5rem 1rem;
+			}
+		}
+	}
+
+	details[open] {   
+		height: auto; 
+	}
+
+	&__container {
+		margin-top: var(--standard-gap);   
+		display: flex;
+		flex-wrap: wrap;
+		@include mixins.flex(row, space-between, stretch, var(--standard-gap));  
+	}
+
+	&__card {
+		background-color: g.$color-light-peach; 
+		@include mixins.flex(column, flex-start, center, 1.5vw);
+		padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
+
+		max-width: calc(33.33% - var(--standard-gap) / 1.5); 
+
+		@include q.phone { 
+			max-width: calc(50% - var(--standard-gap) / 1.5);
+			gap: 3vw;
+		}
+				
+		&-image-container {
+			width: 100%;
+			aspect-ratio: 1 / 1; 
+			overflow: hidden;
+			
+			img {
+				@include mixins.img_cover();
+			}
+		}
+
+		h2 {
+			user-select: text;
+			text-align: center;
+			color: g.$color-grey;
+			@include mixins.subheading(max(0.5rem, 1.5vw));		
+			
+			@include q.phone { 
+				@include mixins.subheading(max(0.5rem, 3vw));		
+			}			
+		}
+
+	}
+
+	&__tag-container {
+		@include mixins.flex(column, center, center, 0); 
+		flex-wrap: wrap;
+		flex-grow: 1;
+		align-items: center;
+
+		gap: 0.25rem max(0.5rem, 2vw);
+
+		@include q.tablet {
+			gap: 0.25rem 1rem;
+		}
+		
+		@include q.phone { 
+			gap: 0.25rem 1rem;
+		}
+	}
+
+	&__tag {
+		@include mixins.flex(row, flex-start, center, 0.5rem); 
+		
+		img {
+			width: max(0.5rem, 2vw);
+			height: max(0.5rem, 2vw);
+			@include q.phone { 
+				width: max(0.5rem, 3vw);
+				height: max(0.5rem, 3vw);	
+			}
+		}
+
+		p {  
+			font-size: max(0.5rem, 1.5vw);
+			@include q.phone { 
+				font-size: max(0.5rem, 3vw);	
+			}
+		} 
+	}
+}

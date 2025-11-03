@@ -1,0 +1,71 @@
+@use "./mixins";
+@use "./global" as g;
+@use "./media-queries" as q;
+
+.hero {
+	background-color: g.$color-green;  
+	@include mixins.flex(row, stretch, stretch, 0);
+	height: 46rem;
+
+	@include q.tablet { 
+		height: 40rem;
+	}
+
+	@include q.phone { 
+		flex-direction: column;
+		height: 34rem;
+	}
+
+	@include q.micro { 
+		flex-direction: column;
+		height: 46rem;
+	}
+	
+	&__left {
+		@include mixins.hero_side();
+		@include mixins.flex(column, center, flex-start, 0); 
+
+		hgroup {
+			@include mixins.hero_margin();
+			@include mixins.flex(column, flex-start, flex-start, 0); 
+			
+			a {
+				@include mixins.coffee_border(g.$color-white); 
+				background-color: transparent;
+				color: g.$color-white;
+				overflow: hidden;
+
+				@include mixins.subheading(1.75rem);
+				padding: 0.75rem 2.75rem;
+				margin-top: var(--standard-gap);
+					
+				@include q.tablet { 
+					@include mixins.subheading(1.25rem);
+					padding: 0.5rem 2.25rem;
+					margin-top: calc(var(--standard-gap) - 0.5rem);
+				}
+			
+				@include q.phone { 
+					@include mixins.subheading(1rem);
+					padding: 0.25rem 1.75rem;
+					margin-top: calc(var(--standard-gap) - 0.5rem);  
+					align-self: center;
+				}
+
+
+				&:hover {
+					@include mixins.coffee_border(g.$color-grey); 
+					color: g.$color-grey; 
+				}
+			}
+		}
+	}
+ 	 
+	&__right {
+		@include mixins.hero_side();
+
+		img {
+			@include mixins.img_cover();
+		}
+	}
+}

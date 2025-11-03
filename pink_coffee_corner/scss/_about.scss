@@ -1,0 +1,43 @@
+@use "./mixins";
+@use "./global" as g;
+@use "./media-queries" as q;
+
+.about { 
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
+	@include mixins.section_padding();
+	background-color: g.$color-peach;
+	flex-grow: 1;
+	
+	p {
+		padding-bottom: 1rem;
+		@include mixins.subheading(1.25rem);
+		
+		@include q.tablet { 
+			@include mixins.subheading(1rem);
+		}
+
+		@include q.phone { 
+			@include mixins.subheading(0.75rem);
+		}
+	}
+
+	img { 
+		flex: 0 0 auto;
+		width: 230px;
+		
+		@include q.tablet { 
+			width: 170px;
+		}
+
+		@include q.phone { 
+			width: 110px;
+		}
+	}
+ 
+	&__horizontal {
+		@include mixins.flex(row, flex-start, center, var(--standard-gap)); 
+		@include mixins.about_width(); 
+
+		align-items: start;
+	}
+}

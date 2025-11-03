@@ -1,0 +1,93 @@
+@use "./mixins";
+@use "./global" as g;
+@use "./media-queries" as q;
+
+.reviews {
+	background-color: g.$color-peach;	
+	@include mixins.section_padding();
+	@include mixins.flex(column, flex-start, center, var(--standard-gap)); 
+
+	&__card-container 
+	{ 
+		@include mixins.page_width();
+		@include mixins.flex(row, center, stretch, var(--standard-gap)); 
+		flex-wrap: wrap;
+	}
+
+	&__card
+	{ 
+		@include mixins.coffee_border(g.$color-white);
+		@include mixins.flex(column, space-between, space-between, 0); 
+
+		width: calc(50% - 0.5 * var(--standard-gap));
+		padding: 1.5rem 2rem; 
+
+		@include q.tablet { 
+			width: 100%;
+			padding: 1rem 1.5rem; 
+		}
+		
+		@include q.phone { 
+			width: 100%;
+			padding: 0.5rem 1rem; 
+		}
+
+		&-top
+		{
+			@include mixins.flex(row, flex-start, flex-start, 1rem); 
+			padding-bottom: 1rem;
+			
+			@include q.phone { 
+				gap: 0.25rem;
+			}
+
+			img {
+				flex: 0 0 auto;
+				
+				width: 2.5rem;
+				height: 2.5rem;
+
+				@include q.tablet { 
+					width: 2rem;
+					height: 2rem;
+				}
+				
+				@include q.phone {  
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+
+				&:nth-child(3) {
+					align-self: flex-end;
+				}				
+			}
+
+			p {
+				text-align: center;
+  				font-style: italic;
+				@include mixins.subheading(1.5rem);
+
+				@include q.tablet { 
+					@include mixins.subheading(1.25rem);
+				}
+				
+				@include q.phone { 
+					@include mixins.subheading(1rem);
+				}
+			}
+		}
+
+		&-bottom
+		{
+			@include mixins.flex(row, space-between, flex-start, 0);
+			font-size: 1.25rem;
+			@include q.tablet { 
+				font-size: 1rem;
+			}
+				
+			@include q.phone { 
+				font-size: 0.75rem;
+			}
+		}
+	}
+}
