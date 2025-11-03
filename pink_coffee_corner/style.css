@@ -367,7 +367,7 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.25rem;
+  gap: max(0.5rem, 1.5vw);
   padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
   max-width: calc(33.33% - var(--standard-gap) / 1.5);
 }
@@ -390,31 +390,25 @@ main {
   user-select: text;
   text-align: center;
   color: #404040;
-  font-size: 1.75rem;
+  font-size: max(0.5rem, 1.5vw);
   font-weight: 700;
-}
-@media screen and (min-width: 577px) and (max-width: 992px) {
-  .menu__card h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
 }
 @media screen and (max-width: 576px) {
   .menu__card h2 {
-    font-size: 1rem;
+    font-size: max(0.5rem, 3vw);
     font-weight: 700;
   }
 }
 .menu__tag-container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 0;
   flex-wrap: wrap;
   flex-grow: 1;
-  align-items: flex-end;
-  gap: 0.25rem 1rem;
+  align-items: center;
+  gap: 0.25rem max(0.5rem, 2vw);
 }
 @media screen and (min-width: 577px) and (max-width: 992px) {
   .menu__tag-container {
@@ -434,11 +428,32 @@ main {
   gap: 0.5rem;
 }
 .menu__tag img {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: max(0.5rem, 2vw);
+  height: max(0.5rem, 2vw);
+}
+@media screen and (max-width: 576px) {
+  .menu__tag img {
+    width: max(0.5rem, 3vw);
+    height: max(0.5rem, 3vw);
+  }
 }
 .menu__tag p {
-  font-size: 1rem;
+  font-size: max(0.5rem, 1.5vw);
+}
+@media screen and (max-width: 576px) {
+  .menu__tag p {
+    font-size: max(0.5rem, 3vw);
+  }
+}
+.menu__tag {
+  /*img {
+  	width: 1.75rem;
+  	height: 1.75rem;
+  }
+
+  p {  
+  	font-size: 1rem;
+  }*/
 }
 
 .reviews {

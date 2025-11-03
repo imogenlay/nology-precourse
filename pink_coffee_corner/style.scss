@@ -198,7 +198,7 @@ main {
 
 	&__card {
 		background-color: g.$color-light-peach; 
-		@include mixins.flex(column, flex-start, center, 1.25rem); 
+		@include mixins.flex(column, flex-start, center, max(0.5rem, 1.5vw)); 
 		padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
 
 		max-width: calc(33.33% - var(--standard-gap) / 1.5); 
@@ -221,25 +221,22 @@ main {
 			user-select: text;
 			text-align: center;
 			color: g.$color-grey;
-			@include mixins.subheading(1.75rem); 
+			@include mixins.subheading(max(0.5rem, 1.5vw));		
 			
-			@include q.tablet { 
-			    @include mixins.subheading(1.25rem);
-			}
-		
 			@include q.phone { 
-			    @include mixins.subheading(1rem);
-			}
+				@include mixins.subheading(max(0.5rem, 3vw));		
+			}			
 		}
+
 	}
 
 	&__tag-container {
-		@include mixins.flex(row, flex-start, center, 0); 
+		@include mixins.flex(column, center, center, 0); 
 		flex-wrap: wrap;
 		flex-grow: 1;
-		align-items: flex-end;
+		align-items: center;
 
-		gap: 0.25rem 1rem;
+		gap: 0.25rem max(0.5rem, 2vw);
 
 		@include q.tablet {
 			gap: 0.25rem 1rem;
@@ -254,13 +251,29 @@ main {
 		@include mixins.flex(row, flex-start, center, 0.5rem); 
 		
 		img {
+			width: max(0.5rem, 2vw);
+			height: max(0.5rem, 2vw);
+			@include q.phone { 
+				width: max(0.5rem, 3vw);
+				height: max(0.5rem, 3vw);	
+			}
+		}
+
+		p {  
+			font-size: max(0.5rem, 1.5vw);
+			@include q.phone { 
+				font-size: max(0.5rem, 3vw);	
+			}
+		}
+
+		/*img {
 			width: 1.75rem;
 			height: 1.75rem;
 		}
 
 		p {  
 			font-size: 1rem;
-		}
+		}*/
 	}
 }
 
