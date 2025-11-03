@@ -23,8 +23,10 @@ $color-white: #FFFFFF;
 	text-decoration: none;
 		
 	overflow-x: hidden;
+	
+    scroll-behavior: smooth;
 }
-
+ 
 p, a { 
 	user-select: text;
 }

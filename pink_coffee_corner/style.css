@@ -10,6 +10,7 @@
   user-select: none;
   text-decoration: none;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 p, a {
