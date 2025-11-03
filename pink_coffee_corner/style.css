@@ -367,13 +367,14 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: max(0.5rem, 1.5vw);
+  gap: 1.5vw;
   padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
   max-width: calc(33.33% - var(--standard-gap) / 1.5);
 }
 @media screen and (max-width: 576px) {
   .menu__card {
     max-width: calc(50% - var(--standard-gap) / 1.5);
+    gap: 3vw;
   }
 }
 .menu__card-image-container {
@@ -444,16 +445,6 @@ main {
   .menu__tag p {
     font-size: max(0.5rem, 3vw);
   }
-}
-.menu__tag {
-  /*img {
-  	width: 1.75rem;
-  	height: 1.75rem;
-  }
-
-  p {  
-  	font-size: 1rem;
-  }*/
 }
 
 .reviews {

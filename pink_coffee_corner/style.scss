@@ -198,13 +198,14 @@ main {
 
 	&__card {
 		background-color: g.$color-light-peach; 
-		@include mixins.flex(column, flex-start, center, max(0.5rem, 1.5vw)); 
+		@include mixins.flex(column, flex-start, center, 1.5vw);
 		padding: calc(var(--standard-gap) / 9 * 6); /* 1.5rem for desktop */
 
 		max-width: calc(33.33% - var(--standard-gap) / 1.5); 
 
 		@include q.phone { 
-			max-width: calc(50% - var(--standard-gap) / 1.5); 
+			max-width: calc(50% - var(--standard-gap) / 1.5);
+			gap: 3vw;
 		}
 				
 		&-image-container {
@@ -264,16 +265,7 @@ main {
 			@include q.phone { 
 				font-size: max(0.5rem, 3vw);	
 			}
-		}
-
-		/*img {
-			width: 1.75rem;
-			height: 1.75rem;
-		}
-
-		p {  
-			font-size: 1rem;
-		}*/
+		} 
 	}
 }
 
