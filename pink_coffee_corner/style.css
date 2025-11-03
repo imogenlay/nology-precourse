@@ -668,6 +668,16 @@ main {
 .contact form input[type=submit]:hover {
   background-color: #EBC9C4;
 }
+.contact form input[type=submit] {
+  border: 3px solid #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
+  overflow: hidden;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.75rem 2.75rem;
+  margin-top: 0.25rem;
+}
 .contact form textarea {
   resize: none;
   height: 10rem;

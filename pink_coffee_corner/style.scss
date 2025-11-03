@@ -411,6 +411,18 @@ main {
 
 			}
 		}
+
+		
+		input[type=submit] {  
+			@include mixins.coffee_border(g.$color-white); 
+			background-color: transparent;
+			color: g.$color-white;
+			overflow: hidden;
+
+			@include mixins.subheading(1.25rem);
+			padding: 0.75rem 2.75rem;
+			margin-top: 0.25rem;
+		}
  
 		textarea {
 			resize: none;
