@@ -401,19 +401,9 @@ main {
 				color: g.$color-light-grey;
 			}
 		}
-
-		input[type=submit] {
-			border: 0;
-			min-width: calc(100% - 9rem); /* 8rem for min-width and 1rem for gap */
-			
-			&:hover {
-				background-color: g.$color-light-peach;
-
-			}
-		}
-
 		
 		input[type=submit] {  
+			min-width: calc(100% - 9rem); /* 8rem for min-width and 1rem for gap */
 			@include mixins.coffee_border(g.$color-white); 
 			background-color: transparent;
 			color: g.$color-white;
@@ -422,6 +412,10 @@ main {
 			@include mixins.subheading(1.25rem);
 			padding: 0.75rem 2.75rem;
 			margin-top: 0.25rem;
+			
+			&:hover {
+				background-color: g.$color-light-peach;
+			}
 		}
  
 		textarea {
@@ -435,14 +429,13 @@ main {
 	}
 
 	&__return {
-		color: g.$color-white;
 		@include mixins.coffee_border(g.$color-white);
+		color: g.$color-white;
 		@include mixins.subheading(1.25rem); 
 		padding: 1rem 6rem;
 
 		&:hover {
-			color: g.$color-light-peach;
-			@include mixins.coffee_border(g.$color-light-peach);
+			background-color: g.$color-light-peach;
 		}
 	}
 }

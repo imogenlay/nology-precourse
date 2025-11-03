@@ -662,13 +662,7 @@ main {
   color: #b3b3b3;
 }
 .contact form input[type=submit] {
-  border: 0;
   min-width: calc(100% - 9rem); /* 8rem for min-width and 1rem for gap */
-}
-.contact form input[type=submit]:hover {
-  background-color: #EBC9C4;
-}
-.contact form input[type=submit] {
   border: 3px solid #FFFFFF;
   background-color: transparent;
   color: #FFFFFF;
@@ -678,6 +672,9 @@ main {
   padding: 0.75rem 2.75rem;
   margin-top: 0.25rem;
 }
+.contact form input[type=submit]:hover {
+  background-color: #EBC9C4;
+}
 .contact form textarea {
   resize: none;
   height: 10rem;
@@ -686,15 +683,14 @@ main {
   color: #b3b3b3;
 }
 .contact__return {
-  color: #FFFFFF;
   border: 3px solid #FFFFFF;
+  color: #FFFFFF;
   font-size: 1.25rem;
   font-weight: 700;
   padding: 1rem 6rem;
 }
 .contact__return:hover {
-  color: #EBC9C4;
-  border: 3px solid #EBC9C4;
+  background-color: #EBC9C4;
 }
 
 .about {
